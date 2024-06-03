@@ -36,7 +36,7 @@ public class UserService {
 
     public User registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
         if(userRepository.findByUsername(registrationBody.getUsername()) != null) {
-            throw new UserAlreadyExistsException("Username " + registrationBody.getUsername() + " already exists");
+            throw new UserAlreadyExistsException("Username " + registrationBody.getUsername() + " is already taken");
         }
         if (userRepository.findByEmail(registrationBody.getEmail()) != null) {
             throw new UserAlreadyExistsException("Email " + registrationBody.getEmail() + " already exists");
