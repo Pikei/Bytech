@@ -1,6 +1,6 @@
 package com.bytech.backend.model;
 
-import com.mongodb.lang.NonNull;
+
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Users")
 public class User {
     @Id
-    @NonNull
     private ObjectId id;
     @Indexed(unique = true)
     private String email;

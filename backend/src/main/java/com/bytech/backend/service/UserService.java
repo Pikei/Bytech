@@ -1,7 +1,9 @@
 package com.bytech.backend.service;
 
+import com.bytech.backend.api.model.RegistrationBody;
+import com.bytech.backend.exceptions.UserAlreadyExistsException;
 import com.bytech.backend.model.User;
-import com.bytech.backend.repository.UserRepository;
+import com.bytech.backend.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +32,21 @@ public class UserService {
 
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public User registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
+        if(userRepository.findByUsername(registrationBody.getUsername()) != null) {
+            throw new UserAlreadyExistsException("Username " + registrationBody.getUsername() + " already exists");
+        }
+        if (userRepository.findByEmail(registrationBody.getEmail()) != null) {
+            throw new UserAlreadyExistsException("Email " + registrationBody.getEmail() + " already exists");
+        }
+        User user = new User();
+        user.setEmail(registrationBody.getEmail());
+        user.setUsername(registrationBody.getUsername());
+        user.setPassword(registrationBody.getPassword());
+        user.setFirstName(registrationBody.getFirstName());
+        user.setLastName(registrationBody.getLastName());
+        return userRepository.save(user);
     }
 }
