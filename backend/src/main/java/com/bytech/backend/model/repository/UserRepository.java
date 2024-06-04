@@ -5,13 +5,15 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
+import java.util.Optional;
+
 public interface UserRepository extends MongoRepository<User, ObjectId> {
 
-    @Query("{'email' : ?0}")
-    User findByEmail(String email);
+    @Query(value = "{'email': {$regex : ?0, $options: 'i'}}")
+    Optional<User> findByEmail(String email);
 
-    @Query("{'username' : ?0}")
-    User findByUsername(String username);
+    @Query(value = "{'username' : {$regex : ?0, $options: 'i'}}")
+    Optional<User> findByUsername(String username);
 
 
 }

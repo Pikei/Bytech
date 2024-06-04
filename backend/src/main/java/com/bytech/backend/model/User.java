@@ -14,11 +14,12 @@ public class User {
     private ObjectId id;
     @Indexed(unique = true)
     private String email;
+    private String firstName;
+    private String lastName;
     @Indexed(unique = true)
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
+
 
     public User() {
     }

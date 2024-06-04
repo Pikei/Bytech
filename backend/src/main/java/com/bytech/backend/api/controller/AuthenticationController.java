@@ -1,5 +1,7 @@
 package com.bytech.backend.api.controller;
 
+import com.bytech.backend.api.model.LoginBody;
+import com.bytech.backend.api.model.LoginResponse;
 import com.bytech.backend.api.model.RegistrationBody;
 import com.bytech.backend.exceptions.UserAlreadyExistsException;
 import com.bytech.backend.service.UserService;
@@ -18,12 +20,6 @@ public class AuthenticationController {
         this.userService = userService;
     }
 
-
-//    public AuthenticationController(UserService userService, UserRepository userRepository) {
-//        this.userService = userService;
-//        this.userRepository = userRepository;
-//    }
-
     @PostMapping("/register")
     public ResponseEntity register(@Valid @RequestBody RegistrationBody registrationBody){
         try {
@@ -32,21 +28,17 @@ public class AuthenticationController {
         } catch (UserAlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
-//        User user = new User();
-//        user.setEmail("test@email");
-//        user.setUsername("test_username");
-//        user.setPassword("test_password");
-//        user.setFirstName("test_first_name");
-//        user.setLastName("test_last_name");
+    }
 
-//        if (userRepository.findByEmail(user.getEmail()) != null) {
-//            throw new UserAlredyExistsException("Email " + user.getEmail() + " already exists");
-//        }
-//
-//        if (userRepository.findByUsername(user.getUsername()) != null) {
-//            throw new UserAlredyExistsException("Username " + user.getUsername() + " already exists");
-//        }
-//
-//        userService.addUser(user);
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginBody loginBody) {
+        String token = userService.Login(loginBody);
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        LoginResponse loginResponse = new LoginResponse();
+        loginResponse.setToken(token);
+        return ResponseEntity.ok(loginResponse);
     }
 }

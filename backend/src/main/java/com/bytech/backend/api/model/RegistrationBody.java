@@ -11,6 +11,12 @@ public class RegistrationBody {
     private String email;
     @NotNull
     @NotBlank
+    private String firstName;
+    @NotNull
+    @NotBlank
+    private String lastName;
+    @NotNull
+    @NotBlank
     @Size(min = 3, max = 255)
     private String username;
     @NotNull
@@ -19,10 +25,4 @@ public class RegistrationBody {
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")
     @Size(min = 8, max = 32)
     private String password;
-    @NotNull
-    @NotBlank
-    private String firstName;
-    @NotNull
-    @NotBlank
-    private String lastName;
 }

@@ -1,5 +1,6 @@
 package com.bytech.backend.service;
 
+import com.bytech.backend.api.model.LoginBody;
 import com.bytech.backend.api.model.RegistrationBody;
 import com.bytech.backend.exceptions.UserAlreadyExistsException;
 import com.bytech.backend.model.User;
@@ -8,14 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final EncryptionService encryptionService;
+    private final JWTService jwtService;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, EncryptionService encryptionService, JWTService jwtService) {
         this.userRepository = userRepository;
+        this.encryptionService = encryptionService;
+        this.jwtService = jwtService;
     }
 
     public User addUser(User user) {
@@ -30,23 +36,32 @@ public class UserService {
         userRepository.deleteById(user.getId());
     }
 
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-
-    public User registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
-        if(userRepository.findByUsername(registrationBody.getUsername()) != null) {
+    public void registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
+        if(userRepository.findByUsername(registrationBody.getUsername()).isPresent()) {
             throw new UserAlreadyExistsException("Username " + registrationBody.getUsername() + " is already taken");
         }
-        if (userRepository.findByEmail(registrationBody.getEmail()) != null) {
+        if (userRepository.findByEmail(registrationBody.getEmail()).isPresent()) {
             throw new UserAlreadyExistsException("Email " + registrationBody.getEmail() + " already exists");
         }
         User user = new User();
         user.setEmail(registrationBody.getEmail());
-        user.setUsername(registrationBody.getUsername());
-        user.setPassword(registrationBody.getPassword());
         user.setFirstName(registrationBody.getFirstName());
         user.setLastName(registrationBody.getLastName());
-        return userRepository.save(user);
+        user.setUsername(registrationBody.getUsername());
+        user.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
+        userRepository.save(user);
     }
+
+    public String Login(LoginBody loginBody) {
+        Optional<User> optionalUser = userRepository.findByUsername(loginBody.getUsername());
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (encryptionService.checkPassword(loginBody.getPassword(), user.getPassword())) {
+                return jwtService.generateToken(user);
+            }
+        }
+        return null;
+    }
+
+
 }
