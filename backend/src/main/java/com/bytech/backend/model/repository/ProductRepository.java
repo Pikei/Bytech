@@ -1,12 +1,13 @@
 package com.bytech.backend.model.repository;
 
 import com.bytech.backend.model.Product;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.Optional;
 
-public interface ProductRepository extends MongoRepository<Product, String> {
+public interface ProductRepository extends MongoRepository<Product, ObjectId> {
      @Query(value = "{'name': {$regex : ?0, $options: 'i'}}")
      Optional<Product> findByName(String name);
 

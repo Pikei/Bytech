@@ -17,6 +17,6 @@ public class CpuCooler extends Product{
     private Integer width;
     private Integer depth;
     private Boolean rgb;
-    private ArrayList<String> CpuSockets;
+    private ArrayList<String> cpuSockets;
 
 }

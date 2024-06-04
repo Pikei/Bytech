@@ -8,7 +8,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Document(collection = "Motherboards")
+@Document(collection = "Motherboard")
 public class Motherboard extends Product {
     private String chipset;
     private String socket;
