@@ -9,6 +9,7 @@ public abstract class Product {
     @Id
     private ObjectId id;
     private String name;
+    private String producer;
     private String category;
     private String description;
     private Double price;

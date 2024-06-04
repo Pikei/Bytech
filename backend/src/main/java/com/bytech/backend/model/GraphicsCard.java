@@ -6,13 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Document(collection = "GPUs")
+@Document(collection = "GPU")
 public class GraphicsCard extends Product {
 
     private String chipsetProducer;
     private String chipsetType;
     private String memory;
-    private String producer;
     private String bus;
     private Integer cardLength;
     private Integer recommendedPower;
