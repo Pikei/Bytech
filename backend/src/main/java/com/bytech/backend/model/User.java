@@ -1,6 +1,7 @@
 package com.bytech.backend.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -18,6 +19,7 @@ public class User {
     private String lastName;
     @Indexed(unique = true)
     private String username;
+    @JsonIgnore
     private String password;
 
 

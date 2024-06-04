@@ -32,4 +32,8 @@ public class JWTService {
                 .withIssuer(issuer)
                 .sign(algorithm);
     }
+
+    public String getUsernameFromJWT(String token) {
+        return JWT.decode(token).getClaim(USERNAME_KEY).asString();
+    }
 }
