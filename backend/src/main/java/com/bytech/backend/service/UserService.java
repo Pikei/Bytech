@@ -63,5 +63,6 @@ public class UserService {
         return null;
     }
 
+    //TODO: add roles customer and admin for users to prevent adding/removing items from database without proper authorization
 
 }
