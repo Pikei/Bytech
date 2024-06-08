@@ -1,6 +1,7 @@
-package com.bytech.backend.model.repository;
+package com.bytech.backend.repository;
 
 import com.bytech.backend.model.CPU;
+import com.mongodb.lang.NonNullApi;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;

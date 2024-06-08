@@ -1,4 +1,4 @@
-package com.bytech.backend.model.repository;
+package com.bytech.backend.repository;
 
 import com.bytech.backend.model.RAM;
 import org.bson.types.ObjectId;

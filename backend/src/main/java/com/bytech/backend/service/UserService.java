@@ -4,7 +4,7 @@ import com.bytech.backend.api.model.LoginBody;
 import com.bytech.backend.api.model.RegistrationBody;
 import com.bytech.backend.exceptions.UserAlreadyExistsException;
 import com.bytech.backend.model.User;
-import com.bytech.backend.model.repository.UserRepository;
+import com.bytech.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

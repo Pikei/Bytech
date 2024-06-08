@@ -2,7 +2,7 @@ package com.bytech.backend.api.security;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.bytech.backend.model.User;
-import com.bytech.backend.model.repository.UserRepository;
+import com.bytech.backend.repository.UserRepository;
 import com.bytech.backend.service.JWTService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

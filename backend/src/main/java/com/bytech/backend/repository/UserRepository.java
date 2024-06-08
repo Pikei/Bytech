@@ -1,4 +1,4 @@
-package com.bytech.backend.model.repository;
+package com.bytech.backend.repository;
 
 import com.bytech.backend.model.User;
 import org.bson.types.ObjectId;
