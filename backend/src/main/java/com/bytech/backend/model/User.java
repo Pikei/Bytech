@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Users")
 public class User {
     @Id
+    @JsonIgnore
     private ObjectId id;
     @Indexed(unique = true)
     private String email;
@@ -21,7 +22,8 @@ public class User {
     private String username;
     @JsonIgnore
     private String password;
-
+    @JsonIgnore
+    private String role;
 
     public User() {
     }

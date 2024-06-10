@@ -21,6 +21,9 @@ public class RegistrationBody {
     private String username;
     @NotNull
     @NotBlank
+    private String role;
+    @NotNull
+    @NotBlank
     //Minimum eight characters, at least one letter, one number and one special character
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")
     @Size(min = 8, max = 32)
