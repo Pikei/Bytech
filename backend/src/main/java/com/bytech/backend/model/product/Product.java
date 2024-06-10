@@ -1,4 +1,4 @@
-package com.bytech.backend.model;
+package com.bytech.backend.model.product;
 
 import lombok.Data;
 import org.bson.types.ObjectId;

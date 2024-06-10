@@ -1,6 +1,6 @@
-package com.bytech.backend.repository;
+package com.bytech.backend.repository.product;
 
-import com.bytech.backend.model.Case;
+import com.bytech.backend.model.product.Case;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;

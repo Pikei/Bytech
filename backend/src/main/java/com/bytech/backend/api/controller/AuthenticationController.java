@@ -1,8 +1,8 @@
 package com.bytech.backend.api.controller;
 
-import com.bytech.backend.api.model.LoginBody;
-import com.bytech.backend.api.model.LoginResponse;
-import com.bytech.backend.api.model.RegistrationBody;
+import com.bytech.backend.api.model.user.LoginBody;
+import com.bytech.backend.api.model.user.LoginResponse;
+import com.bytech.backend.api.model.user.RegistrationBody;
 import com.bytech.backend.exceptions.UserAlreadyExistsException;
 import com.bytech.backend.model.User;
 import com.bytech.backend.service.UserService;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
     private final UserService userService;
 
@@ -34,7 +35,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginBody loginBody) {
-        String token = userService.Login(loginBody);
+        String token = userService.login(loginBody);
         if (token == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
@@ -46,5 +47,17 @@ public class AuthenticationController {
     @GetMapping("/profile")
     public User getLoggedInUserProfile(@AuthenticationPrincipal User user) {
         return user;
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<LoginResponse> logout() {
+        LoginResponse loginResponse = new LoginResponse();
+        loginResponse.setToken(null);
+        return ResponseEntity.ok(loginResponse);
+    }
+
+    @GetMapping("/admin")
+    public boolean isAdmin(@AuthenticationPrincipal User user) {
+        return user.getRole().equals("ADMIN");
     }
 }

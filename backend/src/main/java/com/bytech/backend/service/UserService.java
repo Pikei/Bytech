@@ -1,7 +1,7 @@
 package com.bytech.backend.service;
 
-import com.bytech.backend.api.model.LoginBody;
-import com.bytech.backend.api.model.RegistrationBody;
+import com.bytech.backend.api.model.user.LoginBody;
+import com.bytech.backend.api.model.user.RegistrationBody;
 import com.bytech.backend.exceptions.UserAlreadyExistsException;
 import com.bytech.backend.model.User;
 import com.bytech.backend.repository.UserRepository;
@@ -49,10 +49,11 @@ public class UserService {
         user.setLastName(registrationBody.getLastName());
         user.setUsername(registrationBody.getUsername());
         user.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
+        user.setRole(registrationBody.getRole());
         userRepository.save(user);
     }
 
-    public String Login(LoginBody loginBody) {
+    public String login(LoginBody loginBody) {
         Optional<User> optionalUser = userRepository.findByUsername(loginBody.getUsername());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();

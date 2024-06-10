@@ -1,4 +1,4 @@
-package com.bytech.backend.api.model;
+package com.bytech.backend.api.model.product;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.bytech.backend.api.model;
+package com.bytech.backend.api.model.user;
 
 import lombok.Getter;
 import lombok.Setter;
