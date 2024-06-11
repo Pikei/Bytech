@@ -19,6 +19,16 @@ import { AddRamComponent } from './add-item/add-ram/add-ram.component';
 import { AddSsdComponent } from './add-item/add-ssd/add-ssd.component';
 import { AddPcCaseComponent } from './add-item/add-case/add-case.component';
 import { UserConfigrationComponent } from './user-configration/user-configration.component';
+import { CpuComponent } from './user-configuration/cpu/cpu.component';
+import { CaseComponent } from './user-configuration/case/case.component';
+import { CpuCoolerComponent } from './user-configuration/cpu-cooler/cpu-cooler.component';
+import { GpuComponent } from './user-configuration/gpu/gpu.component';
+import { HddComponent } from './user-configuration/hdd/hdd.component';
+import { MotherboardComponent } from './user-configuration/motherboard/motherboard.component';
+import { PowerSupplyComponent } from './user-configuration/power-supply/power-supply.component';
+import { RamComponent } from './user-configuration/ram/ram.component';
+import { SsdComponent } from './user-configuration/ssd/ssd.component';
+import { UserConfigurationComponent } from './user-configuration/user-configuration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +46,16 @@ import { UserConfigrationComponent } from './user-configration/user-configration
     AddSsdComponent,
     AddPcCaseComponent,
     UserConfigrationComponent,
+    CpuComponent,
+    CaseComponent,
+    CpuCoolerComponent,
+    GpuComponent,
+    HddComponent,
+    MotherboardComponent,
+    PowerSupplyComponent,
+    RamComponent,
+    SsdComponent,
+    UserConfigurationComponent,
   ],
   imports: [
     BrowserModule,

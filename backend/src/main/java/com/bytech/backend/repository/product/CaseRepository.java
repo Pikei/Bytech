@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface CaseRepository extends MongoRepository<Case, ObjectId> {
     @Query(value = "{'name': {$regex : ?0, $options: 'i'}}")
     Optional<Case> findByName(String name);
+
 }

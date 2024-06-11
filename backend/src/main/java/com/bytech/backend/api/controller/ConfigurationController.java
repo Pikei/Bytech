@@ -1,5 +1,6 @@
 package com.bytech.backend.api.controller;
 
+import com.bytech.backend.api.model.ConfigurationBody;
 import com.bytech.backend.model.User;
 import com.bytech.backend.model.Configuration;
 import com.bytech.backend.service.ConfigurationService;
@@ -24,7 +25,7 @@ public class ConfigurationController {
     }
 
     @PostMapping("/new")
-    public void addConfiguration(@AuthenticationPrincipal User user) {
-        configurationService.addConfiguration(user);
+    public void addConfiguration(@AuthenticationPrincipal User user, @RequestBody ConfigurationBody configurationBody) {
+        configurationService.addConfiguration(user, configurationBody);
     }
 }

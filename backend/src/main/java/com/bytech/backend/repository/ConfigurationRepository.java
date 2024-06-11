@@ -13,6 +13,4 @@ public interface ConfigurationRepository extends MongoRepository<Configuration, 
 
     @Query(value = "{'user' : ?0}")
     List<Configuration> findByUser(User user);
-
-
 }
