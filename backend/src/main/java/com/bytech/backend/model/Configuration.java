@@ -1,8 +1,7 @@
-package com.bytech.backend.model.product;
+package com.bytech.backend.model;
 
-import com.bytech.backend.model.User;
+import com.bytech.backend.model.product.*;
 import lombok.Data;
-import org.apache.tomcat.util.http.parser.Cookie;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

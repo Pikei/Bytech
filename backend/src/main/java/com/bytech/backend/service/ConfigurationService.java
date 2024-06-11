@@ -1,7 +1,7 @@
 package com.bytech.backend.service;
 
 import com.bytech.backend.model.User;
-import com.bytech.backend.model.product.Configuration;
+import com.bytech.backend.model.Configuration;
 import com.bytech.backend.repository.ConfigurationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

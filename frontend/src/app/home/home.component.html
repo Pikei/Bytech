@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div *ngIf="userProfile">
+    <h1>Welcome, {{ userProfile.firstName }} {{ userProfile.lastName }}!</h1>
+    <p>Email: {{ userProfile.email }}</p>
+    <p>Username: {{ userProfile.username }}</p>
+    
+    <!-- Przyciski dostępne tylko dla administratorów -->
+    <button *ngIf="userProfile.role === 'ADMIN'" (click)="goToAddItem()">Add Item</button>
+  </div>

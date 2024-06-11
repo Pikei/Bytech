@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="caseType">Case Type:</label>
+    <input type="text" [(ngModel)]="caseItem.caseType" name="caseType" required>
+  
+    <label for="maxLengthOfGpu">Max Length of GPU:</label>
+    <input type="number" [(ngModel)]="caseItem.maxLengthOfGpu" name="maxLengthOfGpu" required>
+  
+    <label for="maxHeightOfCpuCooler">Max Height of CPU Cooler:</label>
+    <input type="number" [(ngModel)]="caseItem.maxHeightOfCpuCooler" name="maxHeightOfCpuCooler" required>
+  
+    <label for="color">Color:</label>
+    <input type="text" [(ngModel)]="caseItem.color" name="color" required>
+  
+    <label for="rgb">RGB:</label>
+    <input type="checkbox" [(ngModel)]="caseItem.rgb" name="rgb">
+  
+    <label for="window">Window:</label>
+    <input type="checkbox" [(ngModel)]="caseItem.window" name="window">
+  
+    <label for="height">Height:</label>
+    <input type="number" [(ngModel)]="caseItem.height" name="height" required>
+  
+    <label for="width">Width:</label>
+    <input type="number" [(ngModel)]="caseItem.width" name="width" required>
+  
+    <label for="depth">Depth:</label>
+    <input type="number" [(ngModel)]="caseItem.depth" name="depth" required>
+  
+    <label for="compatibilities">Compatibilities:</label>
+    <div class="form-group">
+        <label>Compatibilities:</label><br>
+        <div class="form-check" *ngFor="let compatibility of compatibilities">
+            <input class="form-check-input" type="checkbox" id="{{ compatibility }}" name="compatibility_{{ compatibility }}" 
+                   [value]="compatibility" [(ngModel)]="checkedCompatibilities[compatibility]">
+            <label class="form-check-label" for="{{ compatibility }}">{{ compatibility }}</label>
+        </div>
+    </div>
+    
+  
+    <label for="fans">Fans:</label>
+    <input type="number" [(ngModel)]="caseItem.fans" name="fans" required>
+  
+    <label for="fansDiameter">Fans Diameter:</label>
+    <input type="number" [(ngModel)]="caseItem.fansDiameter" name="fansDiameter" required>
+  
+    <label for="usbPorts">USB Ports:</label>
+    <input type="number" [(ngModel)]="caseItem.usbPorts" name="usbPorts" required>
+  
+    <button type="submit">Submit</button>
+  </form>
+  

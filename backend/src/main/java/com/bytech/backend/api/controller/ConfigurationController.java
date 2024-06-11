@@ -1,7 +1,7 @@
 package com.bytech.backend.api.controller;
 
 import com.bytech.backend.model.User;
-import com.bytech.backend.model.product.Configuration;
+import com.bytech.backend.model.Configuration;
 import com.bytech.backend.service.ConfigurationService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;

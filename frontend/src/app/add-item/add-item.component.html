@@ -1,0 +1,39 @@
+<form (ngSubmit)="onNext()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="item.name" name="name" required>
+  
+    <label for="producer">Producer:</label>
+    <input type="text" id="producer" [(ngModel)]="item.producer" name="producer" required>
+  
+    <label for="category">Category:</label>
+    <select id="category" [(ngModel)]="item.category" name="category" required>
+      <option value="pc-case">PC Case</option>
+      <option value="cpu">CPU</option>
+      <option value="cpu-cooler">CPU Cooler</option>
+      <option value="graphics-card">Graphics Card</option>
+      <option value="hdd">HDD</option>
+      <option value="motherboard">Motherboard</option>
+      <option value="power-supply">Power Supply</option>
+      <option value="ram">RAM</option>
+      <option value="ssd">SSD</option>
+    </select>
+  
+    <label for="description">Description:</label>
+    <input type="text" id="description" [(ngModel)]="item.description" name="description" required>
+  
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="item.price" name="price" required>
+  
+  </form>
+  
+  <!-- Specyficzny formularz -->
+  <app-add-case *ngIf="item?.category === 'pc-case'" (formSubmit)="onSubmit($event)"></app-add-case>
+  <app-add-cpu *ngIf="item?.category === 'cpu'" (formSubmit)="onSubmit($event)"></app-add-cpu>
+  <app-add-cpu-cooler *ngIf="item.category === 'cpu-cooler'" (formSubmit)="onSubmit($event)"></app-add-cpu-cooler>
+  <app-add-graphics-card *ngIf="item.category === 'graphics-card'" (formSubmit)="onSubmit($event)"></app-add-graphics-card>
+  <app-add-hdd *ngIf="item.category === 'hdd'" (formSubmit)="onSubmit($event)"></app-add-hdd>
+  <app-add-motherboard *ngIf="item.category === 'motherboard'" (formSubmit)="onSubmit($event)"></app-add-motherboard>
+  <app-add-power-supply *ngIf="item.category === 'power-supply'" (formSubmit)="onSubmit($event)"></app-add-power-supply>
+  <app-add-ram *ngIf="item.category === 'ram'" (formSubmit)="onSubmit($event)"></app-add-ram>
+  <app-add-ssd *ngIf="item.category === 'ssd'" (formSubmit)="onSubmit($event)"></app-add-ssd>
+  
