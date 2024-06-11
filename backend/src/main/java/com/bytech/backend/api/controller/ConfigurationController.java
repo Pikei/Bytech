@@ -4,13 +4,12 @@ import com.bytech.backend.model.User;
 import com.bytech.backend.model.Configuration;
 import com.bytech.backend.service.ConfigurationService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/configurations")
 public class ConfigurationController {
     private final ConfigurationService configurationService;
@@ -22,5 +21,10 @@ public class ConfigurationController {
     @GetMapping
     public List<Configuration> getConfigurations(@AuthenticationPrincipal User user) {
         return configurationService.getConfigurations(user);
+    }
+
+    @PostMapping("/new")
+    public void addConfiguration(@AuthenticationPrincipal User user) {
+        configurationService.addConfiguration(user);
     }
 }

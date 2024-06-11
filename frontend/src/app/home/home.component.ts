@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/add-item']);
   }
   userProfile: any = {};
+  hasConfiguration: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,5 +25,20 @@ export class HomeComponent implements OnInit {
         console.error('Error fetching profile', error);
       }
     );
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  checkUserConfiguration(): void {
+    this.hasConfiguration = this.authService.hasUserConfiguration();
+  }
+
+  goToUserConfiguration(): void {
+    if (this.hasConfiguration) {
+      this.router.navigate(['/user-configuration']); // Adjust the path as necessary
+    }
   }
 }

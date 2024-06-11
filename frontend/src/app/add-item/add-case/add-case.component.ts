@@ -10,10 +10,9 @@ export class AddPcCaseComponent {
 
   constructor() {
       this.compatibilities.forEach(compatibility => {
-          this.checkedCompatibilities[compatibility] = false; // Ustawiamy początkowo na false
+          this.checkedCompatibilities[compatibility] = false;
       });
   }
-
 
   @Output() formSubmit = new EventEmitter<any>();
 

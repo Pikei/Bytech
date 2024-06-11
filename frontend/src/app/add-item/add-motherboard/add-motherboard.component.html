@@ -1,1 +1,70 @@
-<p>add-motherboard works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="motherboardItem.chipset" name="chipset" placeholder="Chipset" required>
+    <input type="text" [(ngModel)]="motherboardItem.socket" name="socket" placeholder="Socket" required>
+    <input type="text" [(ngModel)]="motherboardItem.memoryStandard" name="memoryStandard" placeholder="Memory Standard" required>
+
+    <div class="form-group">
+        <label for="memorySlots">Memory Slots: </label>
+        <input type="number" [(ngModel)]="motherboardItem.memorySlots" name="memorySlots" placeholder="Memory Slots" required>
+    </div>
+
+    <div class="form-group">
+        <label for="memoryMaxCapacity">Memory Max Capacity: </label>
+        <input type="number" [(ngModel)]="motherboardItem.memoryMaxCapacity" name="memoryMaxCapacity" placeholder="Memory Max Capacity" required>
+    </div>
+
+    <input type="text" [(ngModel)]="motherboardItem.memoryType" name="memoryType" placeholder="Memory Type" required>
+
+    <div class="form-group">
+        <label for="supportedMemoryFrequencies">Supported Memory Frequencies:</label><br>
+        <div class="form-check" *ngFor="let frequency of supportedMemoryFrequencies">
+            <input class="form-check-input" type="checkbox" id="{{ frequency }}" name="supportedMemoryFrequencies_{{ frequency }}" 
+                   [value]="frequency" [(ngModel)]="checkedFreaquency[frequency]">
+            <label class="form-check-label" for="{{ frequency }}">{{ frequency }}</label>
+        </div>
+    </div>
+
+    <input type="text" [(ngModel)]="motherboardItem.mbStandard" name="mbStandard" placeholder="Motherboard Standard" required>
+
+    <div class="form-group">
+        <label for="width">Width: </label>
+        <input type="number" [(ngModel)]="motherboardItem.width" name="width" placeholder="Width" required>
+    </div>
+
+    <div class="form-group">
+        <label for="depth">Depth: </label>
+        <input type="number" [(ngModel)]="motherboardItem.depth" name="depth" placeholder="Depth" required>
+    </div>
+
+    <div class="form-group">
+        <label>WiFi: </label>
+        <input type="checkbox" [(ngModel)]="motherboardItem.wifi" name="wifi">
+    </div>
+
+    <div class="form-group">
+        <label>Bluetooth: </label>
+        <input type="checkbox" [(ngModel)]="motherboardItem.bluetooth" name="bluetooth">
+    </div>
+
+    <div class="form-group">
+        <label>Audio: </label>
+        <input type="checkbox" [(ngModel)]="motherboardItem.audio" name="audio">
+    </div>
+
+    <div class="form-group">
+        <label for="m2Slots">M.2 Slots: </label>
+        <input type="number" [(ngModel)]="motherboardItem.m2Slots" name="m2Slots" placeholder="M.2 Slots" required>
+    </div>
+
+    <div class="form-group">
+        <label for="sataPorts">SATA Ports: </label>
+        <input type="number" [(ngModel)]="motherboardItem.sataPorts" name="sataPorts" placeholder="SATA Ports" required>
+    </div>
+
+    <div class="form-group">
+        <label for="usbPorts">USB Ports: </label>
+        <input type="number" [(ngModel)]="motherboardItem.usbPorts" name="usbPorts" placeholder="USB Ports" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

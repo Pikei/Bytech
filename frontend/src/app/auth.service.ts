@@ -39,4 +39,11 @@ export class AuthService {
     const headers = { 'Authorization': `Bearer ${token}` };
     return this.http.get<any>(`${this.apiUrl}/profile`, { headers });
   }
+
+  hasUserConfiguration(): boolean {
+    // Check if user has a configuration
+    // For example, check if a configuration exists in local storage
+    const userConfig = localStorage.getItem('userConfig');
+    return !!userConfig; // Convert to boolean
+  }
 }

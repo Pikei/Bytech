@@ -1,1 +1,24 @@
-<p>add-ram works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="ramItem.capacity" name="capacity" placeholder="Capacity" required>
+    <input type="text" [(ngModel)]="ramItem.type" name="type" placeholder="Type" required>
+
+    <div class="form-group">
+        <label for="frequency">Frequency[MHz]: </label>
+        <input type="number" [(ngModel)]="ramItem.frequency" name="frequency" placeholder="Frequency" required>
+    </div>
+
+    <div class="form-group">
+        <label for="voltage">Voltage[V]: </label>
+        <input type="number" step="0.1" [(ngModel)]="ramItem.voltage" name="voltage" placeholder="Voltage" required>
+    </div>
+
+    <input type="text" [(ngModel)]="ramItem.delay" name="delay" placeholder="Delay" required>
+
+    <div class="form-group">
+        <label for="numberOfModules">Number of Modules: </label>
+        <input type="number" [(ngModel)]="ramItem.numberOfModules" name="numberOfModules" placeholder="Number of Modules" required min="1" max="20">
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+

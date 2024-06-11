@@ -18,6 +18,7 @@ import { AddPowerSupplyComponent } from './add-item/add-power-supply/add-power-s
 import { AddRamComponent } from './add-item/add-ram/add-ram.component';
 import { AddSsdComponent } from './add-item/add-ssd/add-ssd.component';
 import { AddPcCaseComponent } from './add-item/add-case/add-case.component';
+import { UserConfigrationComponent } from './user-configration/user-configration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { AddPcCaseComponent } from './add-item/add-case/add-case.component';
     AddRamComponent,
     AddSsdComponent,
     AddPcCaseComponent,
+    UserConfigrationComponent,
   ],
   imports: [
     BrowserModule,

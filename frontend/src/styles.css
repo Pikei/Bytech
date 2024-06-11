@@ -9,3 +9,7 @@ form {
     justify-content: center;
 }
 
+input[type="number"] {
+    width: 70px;
+}
+

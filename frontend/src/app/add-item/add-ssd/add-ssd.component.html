@@ -1,1 +1,22 @@
-<p>add-ssd works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="ssdItem.format" name="format" placeholder="Format" required>
+    <input type="text" [(ngModel)]="ssdItem.interfaceType" name="interfaceType" placeholder="Interface Type" required>
+
+    <div class="form-group">
+        <label for="capacity">Capacity [GB]: </label>
+        <input type="number" [(ngModel)]="ssdItem.capacity" name="capacity" placeholder="Capacity" required>
+    </div>
+
+    <div class="form-group">
+        <label for="readSpeed">Read Speed [MB/s]: </label>
+        <input type="number" [(ngModel)]="ssdItem.readSpeed" name="readSpeed" placeholder="Read Speed" required>
+    </div>
+
+    <div class="form-group">
+        <label for="writeSpeed">Write Speed [MB/s]: </label>
+        <input type="number" [(ngModel)]="ssdItem.writeSpeed" name="writeSpeed" placeholder="Write Speed" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+

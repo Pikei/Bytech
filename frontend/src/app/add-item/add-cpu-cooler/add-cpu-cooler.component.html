@@ -1,1 +1,44 @@
-<p>add-cpu-cooler works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="coolerItem.fanSpeed" name="fanSpeed" placeholder="Fan Speed">
+
+    <div class="form-group">
+        <label for="fanDiameter">Fan Diameter: </label>
+        <input type="number" [(ngModel)]="coolerItem.fanDiameter" name="fanDiameter" required>
+    </div>
+
+    <div class="form-group">
+        <label for="fans">Fans: </label>
+        <input type="number" [(ngModel)]="coolerItem.fans" name="fans" required>
+    </div>
+
+    <div class="form-group">
+        <label for="height">Height: </label>
+        <input type="number" [(ngModel)]="coolerItem.height" name="height" required>
+    </div>
+
+    <div class="form-group">
+        <label for="width">Width: </label>
+        <input type="number" [(ngModel)]="coolerItem.width" name="width" required>
+    </div>
+
+    <div class="form-group">
+        <label for="depth">Depth: </label>
+        <input type="number" [(ngModel)]="coolerItem.depth" name="depth" required>
+    </div>
+
+    <div class="form-group">
+        <label>RGB: </label>
+        <input type="checkbox" [(ngModel)]="coolerItem.rgb" name="rgb">
+    </div>
+
+    <div class="form-group">
+        <label>CPU Sockets: </label>
+        <div class="form-check" *ngFor="let socket of cpuSockets">
+            <input class="form-check-input" type="checkbox" id="{{ socket }}" name="cpuSocket_{{ socket }}" 
+                   [value]="socket" [(ngModel)]="checkedSocket[socket]">
+            <label class="form-check-label" for="{{ socket }}">{{ socket }}</label>
+        </div>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

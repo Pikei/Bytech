@@ -14,43 +14,37 @@ export class AddItemComponent {
     price: 0
   };
 
-  onNext() {
-    // Implementacja logiki "Next"
-  }
-
   onSubmit(formData: any) {
-    // Połącz wspólne dane z danymi specyficznymi
     const combinedData = { ...this.item, ...formData };
 
-    // Wyślij dane do odpowiedniego endpointu API
-    let endpoint = '';
+    let endpoint = 'http://localhost:8080/products/add/';
     switch (this.item.category) {
       case 'pc-case':
-        endpoint = 'http://localhost:8080/products/add/case';
+        endpoint += 'case';
         break;
       case 'cpu':
-        endpoint = 'http://localhost:8080/products/add/cpu';
+        endpoint += 'cpu';
         break;
       case 'cpu-cooler':
-        endpoint = 'http://localhost:8080/products/add/cooler';
+        endpoint += 'cooler';
         break;
       case 'graphics-card':
-        endpoint = 'http://localhost:8080/products/add/graphics-card';
+        endpoint += 'gpu';
         break;
       case 'hdd':
-        endpoint = 'http://localhost:8080/products/add/hdd';
+        endpoint += 'hdd';
         break;
       case 'motherboard':
-        endpoint = 'http://localhost:8080/products/add/motherboard';
+        endpoint += 'motherboard';
         break;
       case 'power-supply':
-        endpoint = 'http://localhost:8080/products/add/power-supply';
+        endpoint += 'power-supply';
         break;
       case 'ram':
-        endpoint = 'http://localhost:8080/products/add/ram';
+        endpoint += 'ram';
         break;
       case 'ssd':
-        endpoint = 'http://localhost:8080/products/add/ssd';
+        endpoint += 'ssd';
         break;
       default:
         return;

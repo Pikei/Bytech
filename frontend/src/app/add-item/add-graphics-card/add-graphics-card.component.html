@@ -1,1 +1,21 @@
-<p>add-graphics-card works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="graphicsCardItem.chipsetProducer" name="chipsetProducer" placeholder="Chipset Producer" required>
+    <input type="text" [(ngModel)]="graphicsCardItem.chipsetType" name="chipsetType" placeholder="Chipset Type" required>
+    <input type="text" [(ngModel)]="graphicsCardItem.memory" name="memory" placeholder="Memory" required>
+    <input type="text" [(ngModel)]="graphicsCardItem.bus" name="bus" placeholder="Bus" required>
+
+    <div class="form-group">
+        <label for="cardLength">Card Length[mm]: </label>
+        <input type="number" [(ngModel)]="graphicsCardItem.cardLength" name="cardLength" placeholder="Card Length" required>
+    </div>
+
+    <div class="form-group">
+        <label for="recommendedPower">Recommended Power[W]: </label>
+        <input type="number" [(ngModel)]="graphicsCardItem.recommendedPower" name="recommendedPower" placeholder="Recommended Power" required>
+    </div>
+
+    <input type="text" [(ngModel)]="graphicsCardItem.coolingType" name="coolingType" placeholder="Cooling Type" required>
+
+    <button type="submit">Submit</button>
+</form>
+

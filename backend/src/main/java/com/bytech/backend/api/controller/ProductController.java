@@ -1,12 +1,9 @@
 package com.bytech.backend.api.controller;
 
 import com.bytech.backend.api.model.product.*;
-import com.bytech.backend.model.User;
 import com.bytech.backend.model.product.Product;
 import com.bytech.backend.service.ProductService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,1 +1,29 @@
-<p>add-cpu works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="cpuItem.line" name="line" placeholder="Line" required>
+
+    <input type="text" [(ngModel)]="cpuItem.model" name="model" placeholder="Model" required>
+
+    <div class="form-group">
+        <label for="cores">Cores: </label>
+        <input type="number" [(ngModel)]="cpuItem.cores" name="cores" required>
+    </div>
+
+    <input type="text" [(ngModel)]="cpuItem.socket" name="socket" placeholder="Socket" required>
+
+    <div class="form-group">
+        <label for="frequency">Frequency: </label>
+        <input type="number" [(ngModel)]="cpuItem.frequency" name="frequency" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+        <label for="maxFrequency">Max Frequency: </label>
+        <input type="number" [(ngModel)]="cpuItem.maxFrequency" name="maxFrequency" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+        <label for="TDP">TDP: </label>
+        <input type="number" [(ngModel)]="cpuItem.TDP" name="TDP" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

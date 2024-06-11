@@ -20,4 +20,7 @@ public class ConfigurationService {
     public List<Configuration> getConfigurations(User user) {
         return configurationRepository.findByUser(user);
     }
+
+    public void addConfiguration(User user) {
+    }
 }

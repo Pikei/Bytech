@@ -1,1 +1,35 @@
-<p>add-power-supply works!</p>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="powerSupplyItem.certification" name="certification" placeholder="Certification" required>
+    <input type="text" [(ngModel)]="powerSupplyItem.efficiency" name="efficiency" placeholder="Efficiency" required>
+    
+    <div class="form-group">
+        <label for="power">Power[W]: </label>
+        <input type="number" [(ngModel)]="powerSupplyItem.power" name="power" placeholder="Power (W)" required>
+    </div>
+
+    <input type="text" [(ngModel)]="powerSupplyItem.modularity" name="modularity" placeholder="Modularity" required>
+    <input type="text" [(ngModel)]="powerSupplyItem.standard" name="standard" placeholder="Standard" required>
+
+    <div class="form-group">
+        <label for="fanDiameter">Fan Diameter[mm]: </label>
+        <input type="number" [(ngModel)]="powerSupplyItem.fanDiameter" name="fanDiameter" required>
+    </div>
+
+    <div class="form-group">
+        <label for="height">Height[mm]: </label>
+        <input type="number" [(ngModel)]="powerSupplyItem.height" name="height" required>
+    </div>
+
+    <div class="form-group">
+        <label for="width">Width[mm]: </label>
+        <input type="number" [(ngModel)]="powerSupplyItem.width" name="width" required>
+    </div>
+
+    <div class="form-group">
+        <label for="depth">Depth[mm]: </label>
+        <input type="number" [(ngModel)]="powerSupplyItem.depth" name="depth" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
