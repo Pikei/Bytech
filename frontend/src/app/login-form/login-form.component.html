@@ -1,8 +1,10 @@
 <form>
-    <input type = "text"  id="username" name="username" placeholder="Enter your username"> <br>
-    <input type = "password" id="password" name="password" placeholder="Enter your password"> <br>
-    <button type="button" id="login-btn">Login</button>
-</form>
+    <input type="text" [(ngModel)]="credentials.username" name="username" placeholder="Enter your username" required> <br>
+    <input type="password" [(ngModel)]="credentials.password" name="password" placeholder="Enter your password" required> <br>
+    <button type="button" (click)="login()">Login</button>
+    <p>Don't have account yet? <a routerLink="/register">register here</a></p>
+  </form>
+  
 
 
 <!-- [(ngModel)]="username" [ngModelOptions]="{standalone: true}" -->

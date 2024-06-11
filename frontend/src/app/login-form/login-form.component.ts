@@ -1,66 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'login-form',
   templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.css'
+  styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
 
-  constructor(private http: HttpClient) { }
-  ngOnInit(): void {
-    const btn = document.querySelector('#login-btn');
-    if (!btn) return
-    const username = document.querySelector('#username') as HTMLInputElement;
-    const password = document.querySelector('#password') as HTMLInputElement;
+  credentials = { username: '', password: '' };
 
-    btn.addEventListener('click', () => this.send(username.value, password.value));
+  constructor(private authService: AuthService) {}
+
+  login(): void {
+    this.authService.login(this.credentials).subscribe(
+      response => {
+        // Logowanie udane, obsługiwane w AuthService
+      },
+      error => {
+        // Obsługa błędów logowania
+        console.error('Login error', error);
+      }
+    );
   }
-
-  async send(username: string, password: string) {
-    const dataToSend = {
-      username: username,
-      password: password
-    }
-
-    console.log(dataToSend)
-
-    const apiUrl = "http://localhost:8080/auth/login"
-    const headers = { 'Content-Type': 'application/json'}
-
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(dataToSend),
-    });
-    let data = await response.json();
-    console.log(data);
-
-
-    // console.log(username.value, password.value
-
-    
-
-
-
-    // this.http.post(apiUrl, JSON.stringify(datatoSend), {headers: headers});
-
-    // this.http.post(apiUrl, datatoSend, {headers: headers }).subscribe(data => {
-    //   console.log(data)})
-    
-    
-
-    // const response = await fetch(apiUrl, {
-    //     method: 'POST',
-    //     headers: headers,
-    //     body: JSON.stringify(datatoSend),
-    //   });
-    
-    // let data = await response.json();
-    // console.log(data);
-  
-  }
-
-
 }
